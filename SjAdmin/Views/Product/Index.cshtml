@@ -1,0 +1,285 @@
+﻿
+<html>
+
+<head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/semantic.js"></script>
+
+    <link href="~/Content/Semantic_UI/semantic.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="ui segment white">
+            <div class="ui label">
+                Put menu and other logo parts here
+            </div>
+        </div>
+
+        <div class="ui container" id="edit" tabindex="-1">
+            <div class="ui segment white">
+                <div class="ui header">
+                    Create Product
+                </div>
+                <div class="ui segment white">
+                    <div class="ui form center">
+                        <div>
+
+
+                            <div class="three fields">
+                                <div class="field">
+                                    <label for="txtProductCreation">Date</label>
+                                    <input type="text" id="txtProductCreation" placeholder="Product Creation Date">
+                                </div>
+                                <div class="field">
+                                    <label for="txtDesignNo">Design No</label>
+                                    <input type="text" id="txtDesignNo" placeholder="Design No">
+                                </div>
+                                <div class="field">
+                                    <label for="txtDyeNo">DYE No</label>
+                                    <input type="text" id="txtDyeNo" placeholder="Dye No">
+                                </div>
+                            </div>
+
+                            <div class="three fields">
+
+                                <div class="field">
+                                    <label for="txtStyleNo">Style No</label>
+                                    <input type="text" id="txtStyleNo" placeholder="Design No">
+                                </div>
+                                <div class="field">
+                                    <label for="inputEmail4">Category</label>
+                                    <select class="ui dropdown" id="selectCategory">
+                                        <option>Select</option>
+                                    </select>
+                                </div>
+
+                                <div class="field">
+                                    <label for="inputEmail4">Sub Category</label>
+                                    <select class="ui dropdown" id="selectSubCategory">
+                                        <option>Select</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="three fields">
+                                <div class="field">
+                                    <label for="txtProductCode">Product Code</label>
+                                    <input type="text" id="txtProductCode" placeholder="Product Code">
+                                </div>
+                                <div class="field">
+                                    <label for="txtMasterWt">Master Wt</label>
+                                    <input type="text" id="txtMasterWt" placeholder="Master Weight">
+                                </div>
+                                <div class="field">
+                                    <label for="txtMaxWeight">Wax Weight</label>
+                                    <input type="text" id="txtMaxWeight" placeholder="Max Weight">
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="inline four fields">
+                                <label for="fruit">Display option:</label>
+                                <div class="field">
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" id="chkB2bDisplayOption">
+                                        <label for="chkB2bDisplayOption">B2B</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui checkbox">
+                                        <input id="chkB2bExclusiveDisplayOption" type="checkbox" />
+                                        <label for="chkB2bExclusiveDisplayOption">B2b Exclusive</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui checkbox">
+                                        <input id="chkB2cDisplayOption" type="checkbox" />
+                                        <label for="chkB2cDisplayOption">B2C</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="ui segment white">
+                                <label>Finding weight (in gm)</label>
+                                <div class="three fields"></div>
+                                <div class="three fields">
+                                    <div class="field">
+                                        <label for="txtPostFinding">POST</label>
+                                        <input type="text" id="txtPostFinding" placeholder="0.0" />
+                                    </div>
+                                    <div class="field">
+                                        <label for="txtNutFinding">NUT</label>
+                                        <input type="text" id="txtNutFinding" placeholder="0.0" />
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="txtLobsterFinding">LOBSTER</label>
+                                        <input type="text" id="txtLobsterFinding" placeholder="0.0" />
+                                    </div>
+
+                                </div>
+                                <div class="three fields">
+                                    <div class="field">
+                                        <label for="txtChainFinding">CHAIN</label>
+                                        <input type="text" id="txtChainFinding" placeholder="0.0" />
+                                    </div>
+                                    <div class="field">
+                                        <label for="txtSHookFinding">S-HOOK</label>
+                                        <input type="text" id="txtSHookFinding" placeholder="0.0" />
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="txtBezBallFinding">BEZ-BALL</label>
+                                        <input type="text" id="txtBezBallFinding" placeholder="0.0" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="ui segment white">
+                                <label>Stones Weithg & discounts </label>
+                                <div class="four fields">
+
+                                    <div class="two wide field">
+                                        <label></label>
+                                    </div>
+
+                                    <div class="two wide field">
+                                        <label></label>
+                                    </div>
+                                    <div class="six wide field">
+                                        <label>Stone Weight</label>
+                                    </div>
+                                    <div class="six wide field">
+                                        <label>Stone Discount</label>
+                                    </div>
+                                </div>
+
+                                <div class="four fields">
+                                    <div class="two wide field">
+                                        <label></label>
+                                    </div>
+
+                                    <div class="two wide field">
+                                        <label>Small-Stone</label>
+                                    </div>
+                                    <div class="six wide field">
+                                        <input type="text" class="form-control" id="txtSmallStoneWeight" placeholder="0.0" />
+
+                                    </div>
+                                    <div class="six wide field">
+                                        <input type="text" class="form-control" id="txtSmallStoneDiscount" placeholder="0.0" />
+                                    </div>
+                                </div>
+
+                                @*<div class="three fields">
+                                        <div class="field">
+                                            <label>Color-Stone</label>
+                                        </div>
+                                        <div class="field">
+                                            <input type="text" class="form-control" id="txtColorStoneWeight" placeholder="0.0" />
+
+                                        </div>
+                                        <div class="field">
+                                            <input type="text" class="form-control" id="txtColorStoneWeight" placeholder="0.0" />
+                                        </div>
+                                    </div>
+
+                                    <div class="three fields">
+                                        <div class="field">
+                                            <label>Solitare</label>
+                                        </div>
+                                        <div class="field">
+                                            <input type="text" class="form-control" id="txtSolitareStoneWeight" placeholder="0.0" />
+
+                                        </div>
+                                        <div class="field">
+                                            <input type="text" class="form-control" id="txtSolitareStoneWeight" placeholder="0.0" />
+                                        </div>
+                                    </div>*@
+
+                                @*<div class="form-row">
+                                        <div class="field text-center">
+                                            <label>Single-Solitare</label>
+                                        </div>
+                                        <div class="field">
+                                            <input type="text" class="form-control" id="txtSingleSolitareStoneWeight" placeholder="0.0" />
+
+                                        </div>
+                                        <div class="field">
+                                            <input type="text" class="form-control" id="txtSingleSolitareStoneWeight" placeholder="0.0" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row">
+                                        <div class="field text-center">
+                                            <label>Moti</label>
+                                        </div>
+                                        <div class="field">
+                                            <input type="text" class="form-control" id="txtMotiStoneWeight" placeholder="0.0" />
+
+                                        </div>
+                                        <div class="field">
+                                            <input type="text" class="form-control" id="txtMotiStoneWeight" placeholder="0.0" />
+                                        </div>
+                                    </div>*@
+
+                                <div class="ui divider"></div>
+                                <div class="two fields">
+                                    <div class="field">
+                                        <label>Total Stone Wt</label>
+                                        <input type="text" id="txtTotalStoneWt" placeholder="0.0" readonly />
+                                    </div>
+                                    <div class="field">
+                                        <label>Total Discount</label>
+                                        <input type="text" id="txtTotalStoneDiscount" placeholder="0.0" readonly />
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="ui segment white">
+                                <div class="two fields">
+                                    <div class="field">
+                                        <label>Gross Weight</label>
+                                        <input type="text" id="txtGrossWt" placeholder="0.0" readonly />
+                                    </div>
+                                    <div class="field">
+                                        <label>Net Weight</label>
+                                        <input type="text" id="txtNetWt" placeholder="0.0" readonly />
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="ui segment center align" style="text-align:center;">
+                                <div class="ui submit button large blue" id="btnSave">Save</div>
+                                <div class="ui submit button large blue" id="btnSave">Cancel</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
+

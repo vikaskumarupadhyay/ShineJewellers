@@ -1,0 +1,91 @@
+﻿@model SjAdmin.Models.ViewModel.Product.ProductFindingViewModel
+<html>
+
+<head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/semantic.js"></script>
+
+    <link href="~/Content/Semantic_UI/semantic.min.css" rel="stylesheet" />
+    <script src="~/Scripts/Plugins/waitscreen.js"></script>
+      <script src="~/Scripts/Pages/Product/FindingMgmtScript.js"></script>
+
+</head>  
+
+<body>
+    <div class="ui container">
+        <div class="ui segment">
+            <div class="ui header">
+                Logo comes here
+            </div>
+            <div>
+                Menu Comes Here
+            </div>
+    <div><br /></div>
+            <div><br /></div>
+<div class="ui blude button" onclick="displayFindingCreatePopup()">Create New Finding </div>
+            <table class="ui table">
+                <thead>
+                    <tr>
+                        <th class="eight wide center aligned">
+                            Finding Name
+                        </th>
+                        <th class="eight wide center aligned">
+                            Action
+                        </th>
+
+                    </tr>
+                </thead>
+
+                @if (Model != null && Model.ProductFindings != null && Model.ProductFindings.Count > 0)
+{
+
+                    <thead>
+                        @foreach (var productFinding in Model.ProductFindings)
+                       {
+
+                            <tr>
+                                <td class="eight wide center aligned">
+                                   @productFinding.FindingName
+                                </td>
+                                <td class="eight wide center aligned">
+                                    <i class="edit icon" onclick="editFinding(@productFinding.FindingID)"></i>
+                                    <i class="delete icon" onclick="deleteFinding(@productFinding.FindingID)"></i>
+                                </td>
+
+                            </tr>
+                       }
+                    </thead>
+}
+            </table>
+        </div>
+   
+
+            <div class="ui small modal" id="">
+                <div class="header">
+                    Finding
+                </div>
+                <div class="content">
+                   
+                    <div class="ui form">
+
+                        <div class="two fields">
+                           
+                            <div class="field">
+                                <label>Name :</label>
+                            </div>
+                            <div class="field">
+                                <input type="text" id="txtFindingName" value="" />
+                                <input type="hidden" id="hdnFindingID" value="0" />
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="ui button" onclick="saveFinding()">Save</div>
+                    <div class="ui cancel button">Cancel</div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

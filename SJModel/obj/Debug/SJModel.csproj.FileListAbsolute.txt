@@ -1,0 +1,11 @@
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\bin\Debug\SJModel.dll.config
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\bin\Debug\SJModel.dll
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\bin\Debug\SJModel.pdb
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\bin\Debug\EntityFramework.dll
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\bin\Debug\EntityFramework.xml
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\obj\Debug\SJModel.csprojResolveAssemblyReference.cache
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\obj\Debug\SJModel.dll
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\obj\Debug\SJModel.pdb
+E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\bin\Debug\Elmah.dll

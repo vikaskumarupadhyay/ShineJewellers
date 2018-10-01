@@ -1,0 +1,32 @@
+﻿/* Add class to set margin attribute and add it as last class attribute. For semantic grid class we need to use !important attribute.
+   Class declaration margin-MarginTypeFirstLetter-Pixel ex. .marginT10 class will add 10 px Top margin.
+*/
+
+ .marginT10 {margin-top: 10px !important;}
+ .marginT15 {margin-top: 15px !important;}
+ .marginT20 {margin-top: 20px !important;}
+
+ .marginL15{margin-left:15px !important;}
+
+ .marginTD10{margin-top: 10px !important; margin-bottom: 10px!important}
+
+ .marginLR10{margin-left: 10px !important; margin-right: 10px!important}
+/* Add padding attribute.
+    Class declaration padding-PaddingTypeFirstLetter-Pixel ex. .marginT20 class will add 20 px left padding.
+*/ 
+
+ .paddingL20{ padding-left: 20px;}
+ .paddingL40{padding-left:40px !important}
+
+  /* Add red boarder
+*/ 
+ .borderRed {
+    border: 2px solid red;
+}
+/* Add image opacity
+*/ 
+.opacity02 {
+    -ms-opacity: 0.2;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
