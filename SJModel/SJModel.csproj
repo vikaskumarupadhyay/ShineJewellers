@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Sql Script\10th Oct 2018\added few more columns to Category Table.sql" />
     <Content Include="Sql Script\28th Sep 2018\01-create basic table related to Product creation.sql" />
   </ItemGroup>
   <ItemGroup />
