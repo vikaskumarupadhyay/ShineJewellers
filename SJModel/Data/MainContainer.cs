@@ -18,6 +18,7 @@ namespace SJModel.Data
 
 
         public virtual DbSet<Finding> Findings { get; set; }
+        public virtual DbSet<Stone> Stones { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
            // base.OnModelCreating(modelBuilder);

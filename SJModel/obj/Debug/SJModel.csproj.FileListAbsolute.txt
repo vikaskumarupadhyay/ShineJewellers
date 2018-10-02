@@ -9,3 +9,25 @@ E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\obj\Debug\SJModel.csp
 E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\obj\Debug\SJModel.dll
 E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\obj\Debug\SJModel.pdb
 E:\Bluestone by self\WebApplication\ShinesJwellery\SJModel\bin\Debug\Elmah.dll
+E:\Bluestone\Application\SJModel\bin\Debug\SJModel.dll.config
+E:\Bluestone\Application\SJModel\bin\Debug\SJModel.dll
+E:\Bluestone\Application\SJModel\bin\Debug\SJModel.pdb
+E:\Bluestone\Application\SJModel\bin\Debug\Elmah.dll
+E:\Bluestone\Application\SJModel\bin\Debug\EntityFramework.dll
+E:\Bluestone\Application\SJModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\Bluestone\Application\SJModel\bin\Debug\EntityFramework.xml
+E:\Bluestone\Application\SJModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\Bluestone\Application\SJModel\obj\Debug\SJModel.csprojResolveAssemblyReference.cache
+E:\Bluestone\Application\SJModel\obj\Debug\SJModel.dll
+E:\Bluestone\Application\SJModel\obj\Debug\SJModel.pdb
+E:\Bluestone\Project\SJModel\bin\Debug\SJModel.dll.config
+E:\Bluestone\Project\SJModel\bin\Debug\SJModel.dll
+E:\Bluestone\Project\SJModel\bin\Debug\SJModel.pdb
+E:\Bluestone\Project\SJModel\bin\Debug\Elmah.dll
+E:\Bluestone\Project\SJModel\bin\Debug\EntityFramework.dll
+E:\Bluestone\Project\SJModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\Bluestone\Project\SJModel\bin\Debug\EntityFramework.xml
+E:\Bluestone\Project\SJModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\Bluestone\Project\SJModel\obj\Debug\SJModel.csprojResolveAssemblyReference.cache
+E:\Bluestone\Project\SJModel\obj\Debug\SJModel.dll
+E:\Bluestone\Project\SJModel\obj\Debug\SJModel.pdb

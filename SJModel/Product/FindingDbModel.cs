@@ -53,8 +53,20 @@ namespace SJModel.Product
         public List<Finding> GetAllFindingsFromDB()
         {
             List<Finding> allFinding = new List<Finding>();
-            allFinding= DB.Findings.Select(x => x).ToList();
+            allFinding= DB.Findings.Where(x => x.IsActive!=null &&  x.IsActive.Value).ToList();
             return allFinding;
+        }
+
+        public void DeleteFinding(int findingId)
+        {
+            if (findingId == 0)
+                return;
+            Finding finding= DB.Findings.FirstOrDefault(x => x.FindingId == findingId);
+            if (finding != null)
+            {
+                finding.IsActive = false;
+                DB.SaveChanges();
+            }
         }
     }
 }

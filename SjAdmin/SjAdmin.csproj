@@ -137,6 +137,7 @@
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\Pages\Product\FindingMgmtScript.js" />
+    <Content Include="Scripts\Pages\Product\StoneMgmtScript.js" />
     <Content Include="Scripts\Plugins\waitscreen.js" />
     <Content Include="Scripts\semantic.js" />
     <Content Include="Scripts\semantic.min.js" />
@@ -155,6 +156,7 @@
     </Compile>
     <Compile Include="Models\JsonpResult.cs" />
     <Compile Include="Models\ProductHelper.cs" />
+    <Compile Include="Models\ViewModel\Product\StoneViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ViewModel\Product\ProductFindingViewModel.cs" />
   </ItemGroup>

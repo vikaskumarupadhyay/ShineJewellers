@@ -9,7 +9,7 @@ namespace SjAdmin.Models
 {
     public class ProductHelper
     {
-        #region finding helper
+        #region finding helper 
         public  ProductFindingViewModel ConvertFindingToViewModel(List<Finding> findings)
         {
             if (findings == null || findings.Count == 0)
@@ -33,6 +33,45 @@ namespace SjAdmin.Models
             productFinding.FindingName = finding.FindingName;
             return productFinding;
         }
+        #endregion
+
+
+        #region Stone helper
+        public List<StoneViewModel> GetViewModelFromDbStoneCollection(List<Stone> stoneCollection)
+        {
+            if (stoneCollection == null || stoneCollection.Count == 0)
+            {
+                return null;
+            }
+            List<StoneViewModel> stoneViewModelCollection = new List<ViewModel.Product.StoneViewModel>();
+
+            foreach (Stone stone in stoneCollection)
+            {
+                StoneViewModel stoneViewModel = GetViewModelFromDbStone(stone);
+                if(stoneViewModel!=null)
+                stoneViewModelCollection.Add(stoneViewModel);
+            }
+            return stoneViewModelCollection;
+        }
+
+        public StoneViewModel GetViewModelFromDbStone(Stone stone)
+        {
+            StoneViewModel stoneViewModel = new StoneViewModel();
+            stoneViewModel.StoneId = stone.StoneId;
+            stoneViewModel.StoneName = stone.StoneName;
+            stoneViewModel.IsActive = stone.IsActive;
+            return stoneViewModel;
+        }
+
+        public Stone GetStoneObjectFromViewModelStone(StoneViewModel stoneViewModel)
+        {
+            Stone stone = new Stone();
+            stone.StoneId = stoneViewModel.StoneId;
+            stone.StoneName = stoneViewModel.StoneName;
+            stone.IsActive = stoneViewModel.IsActive;
+            return stone;
+        }
+
         #endregion
     }
 }

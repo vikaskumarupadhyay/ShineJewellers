@@ -1,17 +1,91 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
+﻿@model List<SjAdmin.Models.ViewModel.Product.StoneViewModel>
 <html>
+
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Stone</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/semantic.js"></script>
+
+    <link href="~/Content/Semantic_UI/semantic.min.css" rel="stylesheet" />
+    <script src="~/Scripts/Plugins/waitscreen.js"></script>
+    <script src="~/Scripts/Pages/Product/StoneMgmtScript.js"></script>
+
 </head>
+
 <body>
-    <div> 
+    <div class="ui container">
+        <div class="ui segment">
+            <div class="ui header">
+                Logo comes here
+            </div>
+            <div>
+                Menu Comes Here
+            </div>
+            <div><br /></div>
+            <div><br /></div>
+            <div class="ui blude button" onclick="displayStoneCreatePopup()">Create New Stone Item </div>
+            <table class="ui table">
+                <thead>
+                    <tr>
+                        <th class="eight wide center aligned">
+                            Stone Name
+                        </th>
+                        <th class="eight wide center aligned">
+                            Action
+                        </th>
+
+                    </tr>
+                </thead>
+
+                @if (Model != null && Model.Count() > 0)
+                {
+
+                    <thead>
+                        @foreach (var stones in Model)
+                        {
+
+                            <tr>
+                                <td class="eight wide center aligned">
+                                    @stones.StoneName
+                                </td>
+                                <td class="eight wide center aligned">
+                                    <i class="edit icon" onclick="editStone(@stones.StoneId)"></i>
+                                    <i class="delete icon" onclick="deleteStone(@stones.StoneId)"></i>
+                                </td>
+
+                            </tr>
+                        }
+                    </thead>
+                }
+            </table>
+        </div>
+
+
+        <div class="ui small modal" id="stoneModal">
+            <div class="header">
+                Stone Item
+            </div>
+            <div class="content">
+
+                <div class="ui form">
+
+                    <div class="two fields">
+
+                        <div class="field">
+                            <label>Name :</label>
+                        </div>
+                        <div class="field">
+                            <input type="text" id="txtStoneName" value="" />
+                            <input type="hidden" id="hdnStoneID" value="0" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui button" onclick="saveStone()">Save</div>
+                <div class="ui cancel button">Cancel</div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

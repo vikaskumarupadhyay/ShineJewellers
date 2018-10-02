@@ -21,9 +21,7 @@ namespace SJModel
             {
 
             
-            Data.TestTable tbale = new Data.TestTable();
-            tbale.column1 = "vikassd";
-            tbale.Column2 = "vikas2";
+           //
            // Db.TestTable.Add(tbale);
             Db.SaveChanges();
             }

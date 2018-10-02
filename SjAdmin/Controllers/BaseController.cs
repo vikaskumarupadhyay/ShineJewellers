@@ -30,6 +30,17 @@ namespace SjAdmin.Controllers
                 return _findingDbModel ?? (_findingDbModel = new FindingDbModel(DB));
             }
         }
+
+        private StoneDbModel _stoneDbModel { get; set; }
+
+        protected StoneDbModel StoneDbModel
+        {
+            get
+            {
+                return _stoneDbModel ?? (_stoneDbModel = new StoneDbModel(DB));
+            }
+        }
+
         #endregion
     }
 }

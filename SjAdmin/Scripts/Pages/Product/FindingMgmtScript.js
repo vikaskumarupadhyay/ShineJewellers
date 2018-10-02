@@ -25,8 +25,22 @@ function displayFindingCreatePopup()
     $('#hdnFindingID').val('0');
     $('.ui.modal').modal('show');
 }
-function resetFindingId() {
+function deleteFinding(findingId) {
+    if (confirm('Are you sure, you want to delete it')) {
+        $.ajax({
+            url: '/Product/DeleteFinding',
+            type: 'POST',
+            data: { findingId: findingId },
+            success: function (data) {
+                alert(data.DeleteMessage);
+                window.location.href = "/Product/Finding";
+            },
+            error: function (x, ex, dx) {
 
+            }
+
+        });
+    }
 
 }
 

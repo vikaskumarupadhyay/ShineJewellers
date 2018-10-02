@@ -25,6 +25,7 @@ namespace SjAdmin.Controllers
             return View();
         }
 
+        #region Finding Action Methods
         public ActionResult Finding()
         {
             var allFindings = FindingDbModel.GetAllFindingsFromDB();
@@ -40,7 +41,7 @@ namespace SjAdmin.Controllers
             ProductFinding viewModelFinding= helper.GetViewModelProductFindingFromDbFinding(finding);
             return Json(viewModelFinding, JsonRequestBehavior.AllowGet);
         }
-
+        
 
         public JsonResult SaveFinding(Finding finding)
         {
@@ -68,5 +69,94 @@ namespace SjAdmin.Controllers
             }
             return Json(new { UpdateMessage = message });
         }
+
+
+        public JsonResult DeleteFinding(int findingId)
+        {
+            string message = "Finding deleted successfuly";
+            try
+            {
+                FindingDbModel.DeleteFinding(findingId);
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+                Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+            }
+
+            return Json(new { DeleteMessage = message });
+        }
+
+        #endregion
+
+
+        public ActionResult DisplayAllStone()
+        {
+            var allStoneFromDb = StoneDbModel.GetAllStonesFromDB();
+            List<StoneViewModel> stoneViewModelCollection = helper.GetViewModelFromDbStoneCollection(allStoneFromDb);
+            return View("Stone", stoneViewModelCollection);
+        }
+
+        public JsonResult SaveStone(StoneViewModel stoneViewModel)
+        {
+            string message = "";
+            try
+            {
+                if (stoneViewModel != null)
+                {
+                    Stone stone = helper.GetStoneObjectFromViewModelStone(stoneViewModel);
+                    if (stone != null)
+                    {
+                        if (stone.StoneId > 0)
+                        {
+                            message = "Stone details updated successfully";
+                             StoneDbModel.UpdateStone(stone);
+                        }
+                        else
+                        {
+                            message = "Stone created successfully";
+                            StoneDbModel.SaveStone(stone);
+                        }
+                    }
+                    else
+                    {
+                        message = "Application was not able to create Stone, contact Admin";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+                message =ex.Message;
+            }
+            return Json(new { UpdateMessage = message });
+        }
+
+        public JsonResult GetStoneDetail(int stoneId)
+        {
+            Stone stone = StoneDbModel.GetStoneModel(stoneId);
+            StoneViewModel stoneviewModel = helper.GetViewModelFromDbStone(stone);
+            return Json(stoneviewModel, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult DeleteStone(int stoneId)
+        {
+            string message = "Stone deleted successfuly";
+            try
+            {
+                StoneDbModel.DeleteStone(stoneId);
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+                Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+            }
+
+            return Json(new { DeleteMessage = message });
+        }
+
+
+
+
     }
 }
