@@ -39,7 +39,7 @@
                 @if (Model != null && Model.ProductFindings != null && Model.ProductFindings.Count > 0)
 {
 
-                    <thead>
+                    <tbody>
                         @foreach (var productFinding in Model.ProductFindings)
                        {
 
@@ -54,7 +54,7 @@
 
                             </tr>
                        }
-                    </thead>
+                    </tbody>
 }
             </table>
         </div>

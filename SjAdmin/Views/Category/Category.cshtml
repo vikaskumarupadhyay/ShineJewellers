@@ -1,0 +1,121 @@
+﻿
+<html>
+
+<head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/semantic.js"></script>
+
+    <link href="~/Content/Semantic_UI/semantic.min.css" rel="stylesheet" />
+    <script src="~/Scripts/Plugins/waitscreen.js"></script>
+
+    <script src="~/Scripts/Pages/Category/Category.js"></script>
+
+</head>
+
+<body>
+    <div class="ui container">
+        <div class="ui segment">
+            <div class="ui header">
+                Logo comes here
+            </div>
+            <div>
+                Menu Comes Here
+            </div>
+            <div><br /></div>
+            <div><br /></div>
+            <div class="ui blude button" onclick="displayCreateCategoryModal()">Create New Category </div>
+            <table class="ui table">
+                <thead>
+                    <tr>
+                        <th class="three wide center aligned">
+                            Category Name
+                        </th>
+
+                        <th class="three wide center aligned">
+                            Category Content
+                        </th>
+
+                        <th class="three wide center aligned">
+                            Category Order
+                        </th>
+
+                        <th class="four wide center aligned">
+                            Sub Categories
+                        </th>
+                        <th class="three wide center aligned">
+                            Action
+                        </th>
+
+                    </tr>
+                </thead>
+                @*<tbody>
+                    <tr>
+                        <td class="eight wide center aligned">
+                            @productFinding.FindingName
+                        </td>
+                        <td class="eight wide center aligned">
+                            <i class="edit icon" onclick="editFinding(@productFinding.FindingID)"></i>
+                            <i class="delete icon" onclick="deleteFinding(@productFinding.FindingID)"></i>
+                        </td>
+
+                    </tr>
+                </tbody>*@
+              
+            </table>
+        </div>
+
+
+        <div class="ui small modal" id="">
+            <div class="header">
+                Category
+            </div>
+            <div class="content">
+
+                <div class="ui form">
+
+                    <div class="two fields">
+
+                        <div class="field">
+                            <label>Name :</label>
+                        </div>
+                        <div class="field">
+                            <input type="text" id="txtCategoryName" value="" />
+                        </div>
+
+                    </div>
+                    <div class="two fields">
+
+                        <div class="field">
+                            <label>Content :</label>
+                        </div>
+                        <div class="field">
+                            <textarea  id="txtCategoryContent" rows="2" ></textarea>
+                        </div>
+
+                    </div>
+                    <div class="two fields">
+
+                        <div class="field">
+                            <label>Category Order :</label>
+                        </div>
+                        <div class="field">
+                            <select class="ui dropdown" id="categoryOrderDropDown">
+                                @for (int a = 1; a < 20; a++)
+                                {
+                                    <option value="@a">@a</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui button" onclick="saveFinding()">Save</div>
+                <div class="ui cancel button">Cancel</div>
+            </div>
+        </div>
+   
+    </div>
+</body>
+</html>

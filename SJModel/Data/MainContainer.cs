@@ -16,9 +16,9 @@ namespace SJModel.Data
         public MainContainer(string connectionString) : base(connectionString) { }
 
 
-
         public virtual DbSet<Finding> Findings { get; set; }
         public virtual DbSet<Stone> Stones { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
            // base.OnModelCreating(modelBuilder);

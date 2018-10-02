@@ -57,6 +57,7 @@
     <Compile Include="Core\DatabaseFactory.cs" />
     <Compile Include="Core\Disposable.cs" />
     <Compile Include="Core\IDatabaseFactory.cs" />
+    <Compile Include="Data\Category.cs" />
     <Compile Include="Data\Finding.cs" />
     <Compile Include="Data\MainContainer.cs" />
     <Compile Include="Data\Stone.cs" />

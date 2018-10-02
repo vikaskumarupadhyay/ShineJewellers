@@ -136,6 +136,7 @@
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <Content Include="Scripts\Pages\Category\Category.js" />
     <Content Include="Scripts\Pages\Product\FindingMgmtScript.js" />
     <Content Include="Scripts\Pages\Product\StoneMgmtScript.js" />
     <Content Include="Scripts\Plugins\waitscreen.js" />
@@ -150,6 +151,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,6 +168,7 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Product\Stone.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
