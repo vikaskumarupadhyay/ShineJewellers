@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using SJModel.Data;
 using SJModel.Core;
 
-namespace SJModel.Product
+namespace SJModel.ProductModel
 {
     public class FindingDbModel:BaseModel
     {

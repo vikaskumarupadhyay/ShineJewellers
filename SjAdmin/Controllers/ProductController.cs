@@ -1,7 +1,7 @@
 ﻿using SjAdmin.Models;
 using SjAdmin.Models.ViewModel.Product;
 using SJModel.Data;
-using SJModel.Product;
+using SJModel.ProductModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

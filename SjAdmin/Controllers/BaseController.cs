@@ -1,5 +1,6 @@
-﻿using SJModel.Data;
-using SJModel.Product;
+﻿using SJModel.CategoryModel;
+using SJModel.Data;
+using SJModel.ProductModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,18 @@ namespace SjAdmin.Controllers
                 return _stoneDbModel ?? (_stoneDbModel = new StoneDbModel(DB));
             }
         }
+
+        private CategoryDbModel _categoryDbModel { get; set; }
+
+        protected CategoryDbModel CategoryDbModel
+        {
+            get
+            {
+                return _categoryDbModel ?? (_categoryDbModel = new CategoryDbModel(DB));
+            }
+        }
+
+        
 
         #endregion
     }

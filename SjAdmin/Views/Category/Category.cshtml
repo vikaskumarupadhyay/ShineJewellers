@@ -1,4 +1,4 @@
-﻿
+﻿@model List<SJModel.Data.Category>
 <html>
 
 <head>
@@ -27,39 +27,58 @@
             <table class="ui table">
                 <thead>
                     <tr>
-                        <th class="three wide center aligned">
+                        <th class="four wide center aligned">
                             Category Name
                         </th>
 
-                        <th class="three wide center aligned">
+                        <th class="four wide center aligned">
                             Category Content
                         </th>
 
-                        <th class="three wide center aligned">
+                        <th class="four wide center aligned">
                             Category Order
                         </th>
 
-                        <th class="four wide center aligned">
+                        @*<th class="four wide center aligned">
                             Sub Categories
-                        </th>
-                        <th class="three wide center aligned">
+                        </th>*@
+                        <th class="four wide center aligned">
                             Action
                         </th>
 
                     </tr>
                 </thead>
-                @*<tbody>
-                    <tr>
-                        <td class="eight wide center aligned">
-                            @productFinding.FindingName
-                        </td>
-                        <td class="eight wide center aligned">
-                            <i class="edit icon" onclick="editFinding(@productFinding.FindingID)"></i>
-                            <i class="delete icon" onclick="deleteFinding(@productFinding.FindingID)"></i>
-                        </td>
+              @if (Model != null && Model.Count > 0)
+              {
+                  <tbody>
+                                      @foreach (var category in Model)
+                {
+                                          <tr>
+                                        
+                                              <td class="four wide center aligned">
+                                                @category.ProductCategoryName
+                                              </td>
+
+                                              <td class="four wide center aligned">
+                                                  @category.Content
+                                              </td>
+
+                                              <td class="four wide center aligned">
+                                                 @category.CategoryOrder
+                                              </td>
+
+                                              @*<td class="four wide center aligned">
+                                                  Sub Categories
+                                              </td>*@
+                                              <td class="four wide center aligned">
+                                                  <i class="edit icon" onclick="editCategory(@category.ProductCategoryId)"></i>
+                                                  <i class="delete icon" onclick="deleteCategory(@category.ProductCategoryId)"></i>
+                                              </td>
 
                     </tr>
-                </tbody>*@
+                }
+                </tbody>
+              }
               
             </table>
         </div>
@@ -70,7 +89,8 @@
                 Category
             </div>
             <div class="content">
-
+                <div class="ui hidden message" id="categoryMessageBoard">
+                </div>
                 <div class="ui form">
 
                     <div class="two fields">
@@ -100,18 +120,20 @@
                         </div>
                         <div class="field">
                             <select class="ui dropdown" id="categoryOrderDropDown">
+                                <option value="0">Select</option>
                                 @for (int a = 1; a < 20; a++)
                                 {
                                     <option value="@a">@a</option>
                                 }
                             </select>
                         </div>
+                        <input type="hidden" id="hdnCategoryId" value="0" />
                     </div>
 
                 </div>
             </div>
             <div class="actions">
-                <div class="ui button" onclick="saveFinding()">Save</div>
+                <div class="ui button" onclick="saveCategory()">Save</div>
                 <div class="ui cancel button">Cancel</div>
             </div>
         </div>

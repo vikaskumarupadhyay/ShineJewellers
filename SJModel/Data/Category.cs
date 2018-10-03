@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SJModel.Data
 {
-    [Table("Category")]
+    [Table("ProductCategory")]
     public partial class Category
     {
         [Key]
