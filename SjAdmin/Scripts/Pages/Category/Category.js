@@ -118,7 +118,7 @@ function editCategory(categoryId) {
 
 
 function deleteCategory(categoryId) {
-    if (confirm('Are you sure, you want to delete it')) {
+    if (confirm('Are you sure, you want to delete it, Sub categories would also be deleted')) {
         $.ajax({
             url: '/Category/DeleteCategory',
             type: 'POST',

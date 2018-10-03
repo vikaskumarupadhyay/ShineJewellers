@@ -137,6 +137,7 @@
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\Pages\Category\Category.js" />
+    <Content Include="Scripts\Pages\Category\SubCategory.js" />
     <Content Include="Scripts\Pages\Product\FindingMgmtScript.js" />
     <Content Include="Scripts\Pages\Product\StoneMgmtScript.js" />
     <Content Include="Scripts\Plugins\waitscreen.js" />
@@ -156,6 +157,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryHelper.cs" />
     <Compile Include="Models\JsonpResult.cs" />
     <Compile Include="Models\ProductHelper.cs" />
     <Compile Include="Models\ViewModel\Product\StoneViewModel.cs" />
@@ -169,6 +171,7 @@
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Product\Stone.cshtml" />
     <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Category\SubCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -62,7 +62,13 @@ namespace SJModel.CategoryModel
         {
             if (categoryId == 0)
                 return;
+             List<SubCategory> subCategories= DB.SubCategories.Where(x => x.ProductCategoryId == categoryId).ToList();
+            if (subCategories != null && subCategories.Count > 0)
+            {
+                subCategories.ForEach(x => x.IsActive = false);
+            }
             Category category = DB.Categories.FirstOrDefault(x => x.ProductCategoryId == categoryId);
+
             if (category != null)
             {
                 category.IsActive = false;

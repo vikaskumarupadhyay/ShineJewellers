@@ -19,6 +19,7 @@ namespace SJModel.Data
         public virtual DbSet<Finding> Findings { get; set; }
         public virtual DbSet<Stone> Stones { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<SubCategory> SubCategories { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
            // base.OnModelCreating(modelBuilder);

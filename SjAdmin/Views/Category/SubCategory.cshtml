@@ -1,0 +1,170 @@
+﻿@model SJModel.CategoryModel.SubCategoryCollection
+<html>
+
+<head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/semantic.js"></script>
+
+    <link href="~/Content/Semantic_UI/semantic.min.css" rel="stylesheet" />
+    <script src="~/Scripts/Plugins/waitscreen.js"></script>
+    <script src="~/Scripts/Pages/Category/SubCategory.js"></script>
+
+</head>
+
+<body>
+    <div class="ui container">
+        <div class="ui segment">
+            <div class="ui header">
+                Logo comes here
+            </div>
+            <div>
+                Menu Comes Here
+            </div>
+            <div><br /></div>
+            <div><br /></div>
+            <div class="ui blude button" onclick="displayCreateSubCategoryModal()">Create New Sub Category </div>
+            <table class="ui table">
+                <thead>
+                    <tr>
+                       
+                        <th class="three wide center aligned">
+                            Sub Category Name
+                        </th>
+
+                        <th class="three wide center aligned">
+                            Sub Category Content
+                        </th>
+
+                        <th class="three wide center aligned">
+                            Sub Category Order
+                        </th>
+
+                        <th class="three wide center aligned">
+                          Main Category Name
+                        </th>
+                        @*<th class="four wide center aligned">
+                                Sub Categories
+                            </th>*@
+                        <th class="four wide center aligned">
+                            Action
+                        </th>
+
+                    </tr>
+                </thead>
+                @if (Model != null && Model.SubCategories!=null &&  Model.SubCategories.Count > 0)
+                {
+                    <tbody>
+                        @foreach (var category in Model.SubCategories)
+                {
+                            <tr>
+
+                                <td class="three wide center aligned">
+                                    @category.SubCategoryName
+                                </td>
+
+                                <td class="three wide center aligned">
+                                    @category.Content
+                                </td>
+
+                                <td class="three wide center aligned">
+                                    @category.SubCategoryOrder
+                                </td>
+                                
+                                <td class="three wide center aligned">
+                                    @category.ProductCategoryId
+                                </td>
+
+
+                                @*<td class="four wide center aligned">
+                                        Sub Categories
+                                    </td>*@
+                                <td class="four wide center aligned">
+                                    <i class="edit icon" onclick="editSubCategory(@category.SubCategoryId)"></i>
+                                    <i class="delete icon" onclick="deleteSubCategory(@category.SubCategoryId)"></i>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                }
+
+            </table>
+        </div>
+
+
+        <div class="ui small modal" id="">
+            <div class="header">
+                Category
+            </div>
+            <div class="content">
+                <div class="ui hidden message" id="subCategoryMessageBoard">
+                </div>
+                <div class="ui form">
+
+                    <div class="two fields">
+
+                        <div class="field">
+                            <label>Name :</label>
+                        </div>
+                        <div class="field">
+                            <input type="text" id="txtSubCategoryName" value="" />
+                        </div>
+
+                    </div>
+                    <div class="two fields">
+
+                        <div class="field">
+                            <label>Content :</label>
+                        </div>
+                        <div class="field">
+                            <textarea id="txtSubCategoryContent" rows="2"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="two fields">
+
+                        <div class="field">
+                            <label>Sub Category Order :</label>
+                        </div>
+                        <div class="field">
+                            <select class="ui dropdown" id="subCategoryOrderDropDown">
+                                <option value="0">Select</option>
+                                @for (int a = 1; a < 20; a++)
+                                {
+                                    <option value="@a">@a</option>
+                                }
+                            </select>
+                        </div>
+                        <input type="hidden" id="hdnSubCategoryId" value="0" />
+                    </div>
+
+                    <div class="two fields">
+
+                        <div class="field">
+                            <label>Main Category:</label>
+                        </div>
+                        <div class="field">
+                            <select class="ui dropdown" id="mainCategoryDropDown">
+                                <option value="0">Select</option>
+                                @if (Model != null && Model.Categories != null && Model.Categories.Count > 0)
+                                {
+                                    foreach (var categoryDetail in Model.Categories)
+                                    {
+                                    <option value="@categoryDetail.CategoryId">@categoryDetail.CategoryName</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui button" onclick="saveSubCategory()">Save</div>
+                <div class="ui cancel button">Cancel</div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

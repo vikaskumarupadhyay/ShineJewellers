@@ -52,7 +52,17 @@ namespace SjAdmin.Controllers
             }
         }
 
-        
+        private SubCategoriesDbModel _subCategoryDbModel { get; set; }
+
+        protected SubCategoriesDbModel SubCategoryDbModel
+        {
+            get
+            {
+                return _subCategoryDbModel ?? (_subCategoryDbModel = new SubCategoriesDbModel(DB));
+            }
+        }
+
+
 
         #endregion
     }
