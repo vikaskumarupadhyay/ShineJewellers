@@ -1,0 +1,28 @@
+﻿@model List<SJModel.Data.SubCategory>
+<div>
+    <div class="fields">
+        <label>Sub Category</label>
+    </div>
+    @if (Model != null && Model.Count > 0)
+    {
+        for (int a = 0; a < Model.Count; a=a+5)
+        {
+            <div class="five fields">
+                @for (int b = a; b < a+5; b++)
+              {
+                  if (b < Model.Count)
+                  {
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" id="chkSubCat_@Model[b].SubCategoryId">
+                        <label for="chkSubCat_@Model[b].SubCategoryId">@Model[b].SubCategoryName</label>
+                    </div>
+                </div>
+                  }
+              }
+            </div>
+        }
+
+    }
+</div>
+

@@ -35,6 +35,18 @@ namespace SJModel.CategoryModel
             return allSubCategory;
         }
 
+        public List<SubCategory> GetAllSubCategoryFromDBForSpecificCategoryId(int categoryId)
+        {
+            List<SubCategory> allSubCategory = new List<SubCategory>();
+            allSubCategory = DB.SubCategories.Where(x => x.ProductCategoryId==categoryId && x.IsActive != null && x.IsActive.Value).ToList();
+            if (allSubCategory != null && allSubCategory.Count > 0)
+            {
+                allSubCategory = allSubCategory.OrderBy(x => x.SubCategoryOrder).ToList();
+            }
+            return allSubCategory;
+        }
+
+
         public SubCategoryCollection GetSubCategoryCollection()
         {
             SubCategoryCollection subCategoryCollection = new SubCategoryCollection();

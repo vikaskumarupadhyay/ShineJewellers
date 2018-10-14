@@ -16,9 +16,23 @@ namespace SjAdmin.Controllers
         ProductHelper helper = new Models.ProductHelper();
         public ActionResult Index()
         {
-            return View();
-        }
+              List <Stone> stones= StoneDbModel.GetAllStonesFromDB();
+            List<Finding> findings = FindingDbModel.GetAllFindingsFromDB();
+            List<Category> categories = CategoryDbModel.GetAllCategoryFromDB();
+            ProductItem item = new ProductItem();
+            item.Stones = stones;
+            item.Findings = findings;
+            item.Categories = categories;
 
+            return View(item);
+        }
+        public ActionResult GetSubCategory(int productCategoryId)
+        {
+            List<SubCategory> categoryCollection = SubCategoryDbModel.GetAllSubCategoryFromDBForSpecificCategoryId(productCategoryId);
+            return Json(new { html = ViewRenderer.RenderPartialToString(this.ControllerContext, "SubCategories", new ViewDataDictionary(categoryCollection), new TempDataDictionary())},JsonRequestBehavior.AllowGet);
+
+            //return View("SubCategories",categoryCollection);
+        }
 
         public ActionResult Test()
         {
@@ -154,9 +168,6 @@ namespace SjAdmin.Controllers
 
             return Json(new { DeleteMessage = message });
         }
-
-
-
 
     }
 }

@@ -55,18 +55,22 @@
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
     <Compile Include="CategoryModel\CategoryDbModel.cs" />
+    <Compile Include="CategoryModel\SubCategoriesDbModel.cs" />
+    <Compile Include="CategoryModel\SubCategoryItem.cs" />
     <Compile Include="Core\DatabaseFactory.cs" />
     <Compile Include="Core\Disposable.cs" />
     <Compile Include="Core\IDatabaseFactory.cs" />
     <Compile Include="Data\Category.cs" />
     <Compile Include="Data\Finding.cs" />
     <Compile Include="Data\MainContainer.cs" />
+    <Compile Include="Data\Product.cs" />
     <Compile Include="Data\Stone.cs" />
+    <Compile Include="Data\SubCategory.cs" />
     <Compile Include="ProductModel\FindingDbModel.cs" />
+    <Compile Include="ProductModel\ProductItem.cs" />
     <Compile Include="ProductModel\ProductModel.cs" />
     <Compile Include="ProductModel\StoneDbModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestTableModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

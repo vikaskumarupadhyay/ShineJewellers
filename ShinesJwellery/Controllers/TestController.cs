@@ -11,8 +11,8 @@ namespace ShinesJwellery.Controllers
         // GET: Test
         public ActionResult Index()
         {
-            SJModel.TestTableModel ds = new SJModel.TestTableModel();
-                ds.SaveTestTable();
+            //SJModel.TestTableModel ds = new SJModel.TestTableModel();
+              //  ds.SaveTestTable();
             return View();
         }
     }
