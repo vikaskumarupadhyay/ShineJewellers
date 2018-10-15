@@ -1,4 +1,4 @@
-﻿@model SJModel.ProductModel.ProductItem
+﻿@model  List<SJModel.Data.Product>
 <html>
 
 <head>
@@ -20,288 +20,180 @@
         </div>
 
        
-        <div class="ui container">
+    
             <div class="ui segment white">
                 <div class="ui header">
-                    Create Product
+                    Product Items
                 </div>
                 <div class="ui segment white">
-                    <div class="ui form center">
-                        <div>
+                    <div class="ui blude button" onclick="createNewProduct()">Create New Product </div>
+                    <table class="ui celled table">
+                        <thead>
+                            <tr>
+                                @*<th class="center aligned">
+                                    Creation Date
+                                </th>*@
+
+                                <th class="center aligned">
+                                    ProductCode
+                                </th>
+
+                                @*<th class="center aligned">
+                                    Category
+                                </th>*@
+                                @*<th class="center aligned">
+                                    Sub Categories
+                                </th>*@
+                                @*<th class="center aligned">
+                                Master Weight 
+                                </th>*@
+                                <th class="center aligned">
+                                    Wax Weight
+                                </th>
+                                <th class="center aligned">
+                                    Total Finding Wt
+                                </th>
+                                <th class="center aligned">
+                                    Total Stone Wt
+                                </th>
+                                <th class="center aligned">
+                                    Total Stone Disc
+                                </th>
+                                
+                                <th class="center aligned">
+                                    Available for B2B
+                                </th>
+                                <th class="center aligned">
+                                    Available for B2B Excl
+                                </th>
+                                <th class="center aligned">
+                                    Available for B2C
+                                </th>
 
 
-                            <div class="three fields">
-                                <div class="field">
-                                    <label for="txtProductCreation">Date</label>
-                                    <input type="text" id="txtProductCreation" placeholder="Product Creation Date">
-                                </div>
-                                <div class="field">
-                                    <label for="txtDesignNo">Design No</label>
-                                    <input type="text" id="txtDesignNo" placeholder="Design No">
-                                </div>
-                                <div class="field">
-                                    <label for="txtDyeNo">DYE No</label>
-                                    <input type="text" id="txtDyeNo" placeholder="Dye No">
-                                </div>
-                            </div>
-
-                            <div class="two fields">
-
-                                <div class="field">
-                                    <label for="txtStyleNo">Style No</label>
-                                    <input type="text" id="txtStyleNo" placeholder="Design No">
-                                </div>
-                                <div class="field">
-                                    <label for="inputEmail4">Category</label>
-                                    <select class="ui dropdown" id="selectCategory" onchange="getSubCategory()">
-
-                                        <option value="0">Select</option>
-                                        @if (Model.Categories != null)
-                                  {
-                                          foreach (var category in Model.Categories)
-                                          {
-                                                <option value="@category.ProductCategoryId">@category.ProductCategoryName</option>
-                                          }
-                                  }
-                                    </select>
-                                </div>
-
-                            </div>
-
-                            <div class="ui segment white" style="display:none;" id="subcategorySection">
-
-                            </div>
+                                @*<th class="center aligned">
+                                Gold type
+                                </th>*@
 
 
-                            <div class="three fields">
-                                <div class="field">
-                                    <label for="txtProductCode">Product Code</label>
-                                    <input type="text" id="txtProductCode" placeholder="Product Code">
-                                </div>
-                                <div class="field">
-                                    <label for="txtMasterWt">Master Wt</label>
-                                    <input type="text" id="txtMasterWt" placeholder="Master Weight">
-                                </div>
-                                <div class="field">
-                                    <label for="txtMaxWeight">Wax Weight</label>
-                                    <input type="text" id="txtMaxWeight" placeholder="Max Weight" >
-                                </div>
-                            </div>
+                                <th class="center aligned">
+                                    Gross weight 14Kt
+                                </th>
+                                <th class="center aligned">
+                                    Gross weight 18Kt
+                                </th>
+                                <th class="center aligned">
+                                    Gross weight 22Kt
+                                </th>
 
 
+                                <th class="center aligned">
+                                    Net weight 14Kt
+                                </th>
+                                <th class="center aligned">
+                                    Net weight 18Kt
+                                </th>
+                                <th class="center aligned">
+                                    Net weight 22Kt
+                                </th>
+
+                                <th class="center aligned">
+                                    Action
+                                </th>
+
+                            </tr>
+                        </thead>
+                        @if (Model != null && Model.Count > 0)
+                        {
+                            <tbody>
+                                @foreach (var product in Model)
+                {
+                                    <tr>
+
+                                
+                                        @*<th class="center aligned">
+                                            @product.CreatedDate
+                                        </th>*@
+
+                                        <td class="center aligned">
+                                            @product.ProductCode
+                                        </td>
+
+                                        @*<th class="center aligned">
+                                            @product.SubCategoryId
+                                        </th>*@
+                                        @*<th class="center aligned">
+                                            Sub Categories
+                                        </th>*@
+                                        @*<th class="center aligned">
+                                            @product.MasterWeight
+                                        </th>*@
+                                        <td class="center aligned">
+                                            @product.WaxWeight
+                                        </td>
+                                        <td class="center aligned">
+                                            @product.TotalFindingWeight
+                                        </td>
+                                        <td class="center aligned">
+                                            @product.TotalStoneWeight
+                                        </td>
+                                        <td class="center aligned">
+                                            @product.TotalStoneDiscount
+                                        </td>
+
+                                        <td class="center aligned">
+                                            @product.DisplayForB2B
+                                        </td>
+                                        <td class="center aligned">
+                                            @product.DisplayForB2BExclusive
+                                        </td>
+                                        <td class="center aligned">
+                                            @product.DisplayForB2C
+                                        </td>
 
 
-                            <div class="ui segment white">
-                                <div class="inline four fields">
-                                    <div class="ui field"><label>Display option:</label></div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input type="checkbox" id="chkB2bDisplayOption">
-                                            <label for="chkB2bDisplayOption">B2B</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input id="chkB2bExclusiveDisplayOption" type="checkbox" />
-                                            <label for="chkB2bExclusiveDisplayOption">B2b Exclusive</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input id="chkB2cDisplayOption" type="checkbox" />
-                                            <label for="chkB2cDisplayOption">B2C</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="ui segment white">
-                                <div class="ui small header"> <label>Finding weight (in gm)</label></div>
-                                <div class="three fields"></div>
-                                @if (Model.Findings != null)
-                            {
-                                 for (int a = 0; a < Model.Findings.Count; a = a + 3)
-                                 {
-                                        <div class="three fields">
-                                            @for (int b = a; b < a+3; b++)
-                                   {
-                                       if (b < Model.Findings.Count)
-                                       {
-                                                    <div class="field">
-                                                        <label for="txtPostFinding_@Model.Findings[b].FindingId">@Model.Findings[b].FindingName</label>
-                                                        <input class="findings" type="text" id="txtPostFinding_@Model.Findings[b].FindingId" placeholder="0.00" name="findings" />
-                                                    </div>
-                                       }
-                                   }
-                                        </div>
-                                 }
-                                    <div class="clear"></div>
-                                    <div class="fields">
-                                        <div class="field">
-                                            <label>
-                                                Total finding wt
-                                            </label>
-                                            <input type="text" id="txtTotalFindingWeight" value="0.00" readonly />
-                                        </div>
-                                    </div>
-                            }
-
-                            </div>
+                                        @*<th class="center aligned">
+                                            Gold type @
+                                        </th>*@
 
 
-                            <div class="ui segment white">
-                                <div class="inline four fields">
-                                    <div class="ui field"><label>Product available in:</label></div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input type="checkbox" id="chk14KtOption">
-                                            <label for="chk14KtOption">14KT</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input id="chk18KtOption" type="checkbox" />
-                                            <label for="chk18KtOption">18KT</label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input id="chk22KtOption" type="checkbox" />
-                                            <label for="chk22KtOption">22KT</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                        <td class="center aligned">
+                                            @product.GrossWeight_14KT
 
-                                <div class="four fields">
-                                    <div class="ui field"><label>Extimated weight:</label></div>
-                                    <div class="field">
-                                        <input type="text" id="txt14KtExtimatedWeight" placeholder="14 kt" readonly />
-                                    </div>
-
-                                    <div class="field">
-                                        <input type="text" id="txt18KtExtimatedWeight" placeholder="18 kt" readonly />
-                                    </div>
-                                    <div class="field">
-                                        <input type="text" id="txt22KtExtimatedWeight" placeholder="22 kt" readonly />
-                                    </div>
-                                </div>
-                            </div>
+                                        </td>
+                                        <td class="center aligned">
+                                            @product.GrossWeight_18KT
+                                        </td>
+                                        <td class="center aligned">
+                                            @product.GrossWeight_22KT
+                                        </td>
 
 
+                                        <td class="center aligned">
+                                            @product.NetWeight_14KT
+                                        </td>
+                                        <td class="center aligned">
+                                            @product.NetWeight_18KT
+                                        </td>
+                                        <td class="center aligned">
+                                            @product.NetWeight_22KT
+                                        </td>
 
-                            <div class="ui segment white">
-                                <div class="four fields ui small header">
-                                    <label>Stones Weithg & discounts </label>
-                                </div>
-
-                                <div class="four fields">
-
-                                    <div class="two wide field">
-                                        <label></label>
-                                    </div>
-
-                                    <div class="two wide field">
-                                        <label></label>
-                                    </div>
-
-                                    <div class="six wide field">
-                                        <label>Stone Weight</label>
-                                    </div>
-
-                                    <div class="six wide field">
-                                        <label>Stone Discount</label>
-                                    </div>
-
-                                </div>
-                                @foreach (var stones in Model.Stones)
-                                {
-
-                                    <div class="four fields">
-                                        <div class="two wide field">
-                                            <label></label>
-                                        </div>
-
-                                        <div class="two wide field">
-                                            <label>@stones.StoneName</label>
-                                        </div>
-                                        <div class="six wide field">
-                                            <input type="text" class="form-control stoneWt" id="txtSmallStoneWeight_@stones.StoneId" name="stoneWeight" placeholder="0.00" />
-
-                                        </div>
-                                        <div class="six wide field">
-                                            <input type="text" class="form-control stoneDisc" id="txtSmallStoneDiscount_@stones.StoneId" name="stoneDiscount" placeholder="0.00" />
-                                        </div>
-                                    </div>
-
-
+   
+                                        <td>
+                                            <i class="edit icon" onclick="editProduct(@product.ProductId)"></i>
+                                            <i class="delete icon" onclick="deleteProduct(@product.ProductId)"></i>
+                                        </td>
+                                    </tr>
                                 }
+                            </tbody>
+                        }
 
-                                <div class="ui divider"></div>
-                                <div class="two fields">
-                                    <div class="field">
-                                        <label>Total Stone Wt</label>
-                                        <input type="text" id="txtTotalStoneWt" value="0.0" readonly />
-                                    </div>
-                                    <div class="field">
-                                        <label>Total Discount</label>
-                                        <input type="text" id="txtTotalStoneDiscount" value="0.0" readonly />
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                            <div class="ui segment white">
-                                <label class="ui small header">Gross Weight</label>
-                                <div class="three fields">
-                                    <div class="field">
-                                        <label>14KT Weight</label>
-                                        <input type="text" id="txtGrossWt14Kt" value="0.0" readonly />
-                                    </div>
-                                    <div class="field">
-                                        <label>18KT Weight</label>
-                                        <input type="text" id="txtGrossWt18Kt" value="0.0" readonly />
-                                    </div>
-                                    <div class="field">
-                                        <label>22KT Weight</label>
-                                        <input type="text" id="txtGrossWt22Kt" value="0.0" readonly />
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="ui segment white">
-                                <label class="ui small header">Net Weight</label>
-                                <div class="three fields">
-                                    <div class="field">
-                                        <label>14KT Weight</label>
-                                        <input type="text" id="txtNetWt14Kt" placeholder="0.0" readonly />
-                                    </div>
-                                    <div class="field">
-                                        <label>18KT Weight</label>
-                                        <input type="text" id="txtNetWt18Kt" placeholder="0.0" readonly />
-                                    </div>
-                                    <div class="field">
-                                        <label>22KT Weight</label>
-                                        <input type="text" id="txtNetWt22Kt" placeholder="0.0" readonly />
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="ui segment center align" style="text-align:center;">
-                                <div class="ui submit button large blue" id="btnSave">Save</div>
-                                <div class="ui submit button large blue" id="btnSave">Cancel</div>
-                            </div>
-                        </div>
-
-
-                    </div>
+                    </table>
+                          
                 </div>
             </div>
-        </div>
+    
 
 
     </div>

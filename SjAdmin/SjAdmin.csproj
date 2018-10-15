@@ -175,6 +175,7 @@
     <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\Category\SubCategory.cshtml" />
     <Content Include="Views\Product\SubCategories.cshtml" />
+    <Content Include="Views\Product\CreateNew.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

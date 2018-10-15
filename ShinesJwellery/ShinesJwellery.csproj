@@ -47,6 +47,14 @@
       <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -98,77 +106,89 @@
     <Content Include="cart.html" />
     <Content Include="checkout.html" />
     <Content Include="contact.html" />
-    <Content Include="css\shines.min.css" />
-    <Content Include="css\style.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\css\shines.min.css" />
+    <Content Include="Content\css\style.css" />
     <Content Include="faq.html" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="img\404.png" />
-    <Content Include="img\about.jpg" />
-    <Content Include="img\ad\1.jpg" />
-    <Content Include="img\ad\2.jpg" />
-    <Content Include="img\apple.png" />
-    <Content Include="img\favicon.png" />
-    <Content Include="img\google.png" />
-    <Content Include="img\inner-bg.jpg" />
-    <Content Include="img\item\1.jpg" />
-    <Content Include="img\item\10.jpg" />
-    <Content Include="img\item\11.jpg" />
-    <Content Include="img\item\12.jpg" />
-    <Content Include="img\item\2.jpg" />
-    <Content Include="img\item\3.jpg" />
-    <Content Include="img\item\4.jpg" />
-    <Content Include="img\item\5.jpg" />
-    <Content Include="img\item\6.jpg" />
-    <Content Include="img\item\7.jpg" />
-    <Content Include="img\item\8.jpg" />
-    <Content Include="img\item\9.jpg" />
-    <Content Include="img\login.jpg" />
-    <Content Include="img\logo-footer.png" />
-    <Content Include="img\logo.png" />
-    <Content Include="img\payment_methods.png" />
-    <Content Include="img\shop.jpg" />
-    <Content Include="img\slider\slider1.jpg" />
-    <Content Include="img\slider\slider2.jpg" />
-    <Content Include="img\small\1.jpg" />
-    <Content Include="img\small\2.jpg" />
-    <Content Include="img\small\3.jpg" />
-    <Content Include="img\small\4.jpg" />
-    <Content Include="img\small\5.jpg" />
-    <Content Include="img\user.jpg" />
-    <Content Include="img\user\1.jpg" />
-    <Content Include="img\user\2.jpg" />
-    <Content Include="img\user\3.jpg" />
+    <Content Include="Content\img\404.png" />
+    <Content Include="Content\img\about.jpg" />
+    <Content Include="Content\img\ad\1.jpg" />
+    <Content Include="Content\img\ad\2.jpg" />
+    <Content Include="Content\img\apple.png" />
+    <Content Include="Content\img\favicon.png" />
+    <Content Include="Content\img\google.png" />
+    <Content Include="Content\img\inner-bg.jpg" />
+    <Content Include="Content\img\item\1.jpg" />
+    <Content Include="Content\img\item\10.jpg" />
+    <Content Include="Content\img\item\11.jpg" />
+    <Content Include="Content\img\item\12.jpg" />
+    <Content Include="Content\img\item\2.jpg" />
+    <Content Include="Content\img\item\3.jpg" />
+    <Content Include="Content\img\item\4.jpg" />
+    <Content Include="Content\img\item\5.jpg" />
+    <Content Include="Content\img\item\6.jpg" />
+    <Content Include="Content\img\item\7.jpg" />
+    <Content Include="Content\img\item\8.jpg" />
+    <Content Include="Content\img\item\9.jpg" />
+    <Content Include="Content\img\login.jpg" />
+    <Content Include="Content\img\logo-footer.png" />
+    <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\payment_methods.png" />
+    <Content Include="Content\img\shop.jpg" />
+    <Content Include="Content\img\slider\slider1.jpg" />
+    <Content Include="Content\img\slider\slider2.jpg" />
+    <Content Include="Content\img\small\1.jpg" />
+    <Content Include="Content\img\small\2.jpg" />
+    <Content Include="Content\img\small\3.jpg" />
+    <Content Include="Content\img\small\4.jpg" />
+    <Content Include="Content\img\small\5.jpg" />
+    <Content Include="Content\img\user.jpg" />
+    <Content Include="Content\img\user\1.jpg" />
+    <Content Include="Content\img\user\2.jpg" />
+    <Content Include="Content\img\user\3.jpg" />
     <Content Include="index.html" />
-    <Content Include="js\contact_me.js" />
-    <Content Include="js\custom.min.js" />
-    <Content Include="js\jqBootstrapValidation.js" />
+    <Content Include="Scripts\js\contact_me.js" />
+    <Content Include="Scripts\js\custom.min.js" />
+    <Content Include="Scripts\js\jqBootstrapValidation.js" />
     <Content Include="my-address.html" />
     <Content Include="my-profile.html" />
     <Content Include="not-found.html" />
     <Content Include="orderlist.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="shop.html" />
     <Content Include="single.html" />
-    <Content Include="vendor\bootstrap\css\bootstrap.min.css" />
-    <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
-    <Content Include="vendor\datatables\datatables.min.css" />
-    <Content Include="vendor\datatables\datatables.min.js" />
-    <Content Include="vendor\icons\css\materialdesignicons.min.css" />
-    <Content Include="vendor\icons\fonts\materialdesignicons-webfonte761.svg" />
-    <Content Include="vendor\jquery\jquery.min.js" />
-    <Content Include="vendor\owl-carousel\AjaxLoader.html" />
-    <Content Include="vendor\owl-carousel\grabbing.png" />
-    <Content Include="vendor\owl-carousel\owl.carousel.css" />
-    <Content Include="vendor\owl-carousel\owl.carousel.js" />
-    <Content Include="vendor\owl-carousel\owl.theme.css" />
-    <Content Include="vendor\select2\css\select2-bootstrap.css" />
-    <Content Include="vendor\select2\css\select2.min.css" />
-    <Content Include="vendor\select2\js\select2.min.js" />
+    <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\vendor\datatables\datatables.min.css" />
+    <Content Include="Content\vendor\datatables\datatables.min.js" />
+    <Content Include="Content\vendor\icons\css\materialdesignicons.min.css" />
+    <Content Include="Content\vendor\icons\fonts\materialdesignicons-webfonte761.svg" />
+    <Content Include="Content\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\vendor\owl-carousel\AjaxLoader.html" />
+    <Content Include="Content\vendor\owl-carousel\grabbing.png" />
+    <Content Include="Content\vendor\owl-carousel\owl.carousel.css" />
+    <Content Include="Content\vendor\owl-carousel\owl.carousel.js" />
+    <Content Include="Content\vendor\owl-carousel\owl.theme.css" />
+    <Content Include="Content\vendor\select2\css\select2-bootstrap.css" />
+    <Content Include="Content\vendor\select2\css\select2.min.css" />
+    <Content Include="Content\vendor\select2\js\select2.min.js" />
     <Content Include="Web.config" />
     <Content Include="wishlist.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,11 +197,19 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="vendor\icons\fonts\materialdesignicons-webfontd41d.eot" />
-    <Content Include="vendor\icons\fonts\materialdesignicons-webfonte761.eot" />
-    <Content Include="vendor\icons\fonts\materialdesignicons-webfonte761.ttf" />
-    <Content Include="vendor\icons\fonts\materialdesignicons-webfonte761.woff" />
-    <Content Include="vendor\icons\fonts\materialdesignicons-webfonte761.woff2" />
+    <Content Include="Content\vendor\icons\fonts\materialdesignicons-webfontd41d.eot" />
+    <Content Include="Content\vendor\icons\fonts\materialdesignicons-webfonte761.eot" />
+    <Content Include="Content\vendor\icons\fonts\materialdesignicons-webfonte761.ttf" />
+    <Content Include="Content\vendor\icons\fonts\materialdesignicons-webfonte761.woff" />
+    <Content Include="Content\vendor\icons\fonts\materialdesignicons-webfonte761.woff2" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Product\ProductListining.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -192,7 +220,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SJModel\SJModel.csproj">

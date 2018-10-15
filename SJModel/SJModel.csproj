@@ -65,10 +65,11 @@
     <Compile Include="Data\MainContainer.cs" />
     <Compile Include="Data\Product.cs" />
     <Compile Include="Data\Stone.cs" />
+    <Compile Include="Data\StoneWeightAndDiscountPerProduct.cs" />
     <Compile Include="Data\SubCategory.cs" />
     <Compile Include="ProductModel\FindingDbModel.cs" />
     <Compile Include="ProductModel\ProductItem.cs" />
-    <Compile Include="ProductModel\ProductModel.cs" />
+    <Compile Include="ProductModel\ProductDbModel.cs" />
     <Compile Include="ProductModel\StoneDbModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

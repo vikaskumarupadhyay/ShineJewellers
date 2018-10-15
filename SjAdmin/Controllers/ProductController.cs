@@ -20,12 +20,91 @@ namespace SjAdmin.Controllers
             List<Finding> findings = FindingDbModel.GetAllFindingsFromDB();
             List<Category> categories = CategoryDbModel.GetAllCategoryFromDB();
             ProductItem item = new ProductItem();
+            var productCollection= ProductDbModel.GetAllProduct();
+            item.Stones = stones;
+            item.Findings = findings;
+            item.Categories = categories;
+
+            return View(productCollection);
+        }
+
+
+        public ActionResult CreateNew()
+        {
+            List<Stone> stones = StoneDbModel.GetAllStonesFromDB();
+            List<Finding> findings = FindingDbModel.GetAllFindingsFromDB();
+            List<Category> categories = CategoryDbModel.GetAllCategoryFromDB();
+            ProductItem item = new ProductItem();
             item.Stones = stones;
             item.Findings = findings;
             item.Categories = categories;
 
             return View(item);
         }
+
+
+
+
+        public ActionResult CreateProduct(Product product)
+        {
+            string message = "";
+            bool savedSuccessfully = true;
+            try
+            {
+                if (product != null)
+                {
+                    if (product.ProductId > 0)
+                    {
+                        ProductDbModel.UpdateProduct(product);
+                        message = "Product updated successfully";
+                    }
+                    else
+                    {
+                        
+                        ProductDbModel.CreateProduct(product);
+                        message = "Product created successfully";
+                    }
+                }
+                else
+                {
+
+                    message = "Kindly provide valid information, contact to application admin";
+                    savedSuccessfully = false;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+                savedSuccessfully = false;
+                Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
+            }
+            return Json(new { SaveMessage = message, IsSuccess = savedSuccessfully });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public ActionResult GetSubCategory(int productCategoryId)
         {
             List<SubCategory> categoryCollection = SubCategoryDbModel.GetAllSubCategoryFromDBForSpecificCategoryId(productCategoryId);

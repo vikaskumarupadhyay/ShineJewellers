@@ -63,6 +63,17 @@ namespace SjAdmin.Controllers
         }
 
 
+        private ProductDbModel _productDbModel { get; set; }
+
+        protected ProductDbModel ProductDbModel
+        {
+            get
+            {
+                return _productDbModel ?? (_productDbModel = new ProductDbModel(DB));
+            }
+        }
+
+
 
         #endregion
     }

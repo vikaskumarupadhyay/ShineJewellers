@@ -26,6 +26,12 @@ $(document).ready(function () {
         CalculateTotalAmountByName('stoneDiscount', 'txtTotalStoneDiscount');
         CalculateNetWeight();
     });
+
+    $('#txtStyleNo').on('input', function () {
+        UpdateProductId();
+    });
+
+    
 })
 
 function CalculateExtimatedWeight() {
@@ -152,4 +158,240 @@ function CalculateTotalAmountByName(elementName, totalElementId) {
     $('#'+totalElementId).val(totalStoneWeight);
 }
 
+//function GetSubCategories() {
+//    var selectedSubCategory = new Array();
+//    $('[name="subCategoryCheckbox"]').each(function () {
+//        if ($(this).is(":checked")) {
+//            selectedSubCategory.push($(this).val());
+//        }
+//    });
+//    return selectedSubCategory;
+//}
 
+function GetSubCategories() {
+    var selectedSubCategories = '';
+    $('[name="subCategoryCheckbox"]').each(function () {
+        if ($(this).is(":checked")) {
+            selectedSubCategories += $(this).val() + ",";
+        }
+    });
+    selectedSubCategories = selectedSubCategories.substring(0, selectedSubCategories.lastIndexOf(","));
+    return selectedSubCategories;
+}
+
+
+
+function GetStoneWeightAndDiscounts() {
+    var stoneWeights = '';
+    var stoneIds = "";
+    var stoneDiscountValue = "";
+
+    $('[name="stoneWeight"]').each(function () {
+        var stoneWeight = $(this).val();
+        var stoneId = $(this).attr('data-value');
+        stoneWeights = stoneWeights + stoneWeight + ",";
+        stoneIds = stoneIds + stoneId + ",";
+
+    });
+    stoneWeights = stoneWeights.substring(0, stoneWeights.lastIndexOf(","));
+    stoneIds = stoneIds.substring(0, stoneIds.lastIndexOf(","));
+
+    $('[name="stoneDiscount"]').each(function () {
+        var stoneDiscount = $(this).val();
+        stoneDiscountValue = stoneDiscountValue + stoneDiscount + ",";
+    });
+
+    stoneDiscountValue = stoneDiscountValue.substring(0, stoneDiscountValue.lastIndexOf(","));
+
+    var StoneWeightAndDiscounts =
+        {
+            StoneIds: stoneIds,
+            StoneWeight: stoneWeights,
+            StoneDiscout: stoneDiscountValue
+        };
+    return StoneWeightAndDiscounts;
+}
+
+
+
+
+//function CreateEmptyStoneAndDiscount() {
+//    var StoneAndDiscountPerProduct =
+//        {
+//            Id: '0',
+//            ProductId: '0',
+//            StoneId: '0',
+//            StoneWeight: '0',
+//            StoneDiscount: '0',
+//        };
+//}
+//function GetStoneWeightAndDiscounts() {
+//    var stoneAndDiscountPerProductCollection = new Array();
+//    $('name=["stoneWeight"]').each(function () {
+//        var stoneAndDiscountPerProduct = new StoneAndDiscountPerProduct();
+
+//        stoneAndDiscountPerProduct.ProductId = $('hdnProductId').val();
+//        var stoneWeight = $(this).val();
+
+//        debugger;
+
+//        var stoneId = $(this).attr('data-value');
+//        stoneAndDiscountPerProduct.StoneId = stoneId;
+
+//        if ($.isNumeric(stoneWeight)) {
+//            stoneAndDiscountPerProduct.StoneWeight = stoneWeight;
+//        }
+
+//    });
+//    return selectedSubCategory;
+//}
+
+
+
+
+function GetProduct() {
+    var StoneWeightAndDiscounts = GetStoneWeightAndDiscounts();
+    var FindingInfoPerProduct = GetFindingDetails();
+    var product =
+    {
+        ProductId: $('#hdnProductId').val(),
+
+        DesignNo: $('#txtDesignNo').val(),
+        DyeNo: $('#txtDyeNo').val(),
+        StyleNo: $('#txtStyleNo').val(),
+
+        ProductCode: $('#txtProductCode').val(),
+
+        CategoryId: $('#selectCategory').val(),
+        SubCategoryId: GetSubCategories(),
+
+        MasterWeight: $('#txtMasterWt').val(),
+        WaxWeight: $('#txtMaxWeight').val(),
+
+        DisplayForB2B: $('#chkB2bDisplayOption').is(':checked'),
+        DisplayForB2C: $('#chkB2cDisplayOption').is(':checked'),
+        DisplayForB2BExclusive: $('#chkB2bExclusiveDisplayOption').is(':checked'),
+
+        ExtimatedWeight_14KT: $('#txt14KtExtimatedWeight').val(),
+        ExtimatedWeight_18KT: $('#txt18KtExtimatedWeight').val(),
+        ExtimatedWeight_22KT: $('#txt22KtExtimatedWeight').val(),
+
+        GrossWeight_14KT: $('#txtGrossWt14Kt').val(),
+        GrossWeight_18KT: $('#txtGrossWt18Kt').val(),
+        GrossWeight_22KT: $('#txtGrossWt22Kt').val(),
+
+        NetWeight_14KT: $('#txtNetWt14Kt').val(),
+        NetWeight_18KT: $('#txtNetWt18Kt').val(),
+        NetWeight_22KT: $('#txtNetWt22Kt').val(),
+
+        StoneIds: (StoneWeightAndDiscounts != null ? StoneWeightAndDiscounts.StoneIds : null),
+        StoneWeights: (StoneWeightAndDiscounts != null ? StoneWeightAndDiscounts.StoneWeight : null),
+        StoneDiscounts: (StoneWeightAndDiscounts != null ? StoneWeightAndDiscounts.StoneDiscout : null),
+
+        ProductAvailableAs14Kt: $('#chk14KtOption').is(':checked'),
+        ProductAvailableAs18Kt: $('#chk18KtOption').is(':checked'),
+        ProductAvailableAs22Kt: $('#chk22KtOption').is(':checked'),
+        FindingWeights: (FindingInfoPerProduct != null ? FindingInfoPerProduct.FindingWeights : null),
+        FindingIds: (FindingInfoPerProduct != null ? FindingInfoPerProduct.FindingIds : null),
+    };
+    // create new table where we wills store productid and stone id, stoneweight, stonediscount, 
+
+    return product;
+}
+
+function SaveProduct() {
+    //CreateProduct
+    var product = GetProduct();
+    $.ajax({
+        url: '/Product/CreateProduct',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(product),
+        success: function (data) {
+            if (data != undefined) {
+                displayMessageBoard(data.SaveMessage);
+                if (data.IsSuccess) {
+                    window.setTimeout(function () {
+                        window.location.reload(true);
+                    }, 2000);
+                    $("html, body").animate({ scrollTop: 0 }, 600);
+                    $('#hdnProductId').val('0');
+                }
+            }
+        },
+        error: function (x, ax, dss) {
+
+        }
+    });
+}
+
+
+function displayMessageBoard(message) {
+    if ($('#productMessageBoard').hasClass('hidden')) {
+        $('#productMessageBoard').removeClass('hidden');
+    }
+    $('#productMessageBoard').addClass('visible');
+    $('#productMessageBoard').text(message);
+}
+
+
+
+function hideMessageBoard() {
+    if ($('#productMessageBoard').hasClass('visible')) {
+        $('#productMessageBoard').removeClass('visible');
+    }
+    $('#productMessageBoard').addClass('hidden');
+    $('#productMessageBoard').text('');
+}
+
+function UpdateProductId() {
+    debugger;
+    var productCode = $('#txtDesignNo').val() + "-" + $('#txtDyeNo').val() + "-" + $('#txtStyleNo').val();
+    $('#txtProductCode').val(productCode);
+}
+
+function GetFindingDetails() {
+    var FindingDetails =
+        {
+            FindingIds: '',
+            FindingWeights: ''
+        };
+
+    var findingIds = '';
+    var findingWeights = "";
+
+
+    $('[name="findings"]').each(function () {
+        var findingWeight = $(this).val();
+        var findingId = $(this).attr('data-value');
+        findingWeights = findingWeights + findingWeight + ",";
+        findingIds = findingIds + findingId + ",";
+    });
+
+    findingWeights = findingWeights.substring(0, findingWeights.lastIndexOf(","));
+    findingIds = findingIds.substring(0, findingIds.lastIndexOf(","));
+
+    FindingDetails.FindingIds = findingIds;
+    FindingDetails.FindingWeights = findingWeights;
+
+    return FindingDetails;
+}
+
+
+
+function editProduct(productId) {
+
+}
+
+
+
+function deleteProduct(productId) {
+
+}
+
+
+function createNewProduct()
+{
+    window.location.href = "/Product/CreateNew";
+
+}
